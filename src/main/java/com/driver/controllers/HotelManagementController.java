@@ -68,11 +68,7 @@ public class HotelManagementController {
     public int getBookings(@PathVariable("aadharCard")Integer aadharCard)
     {
         //In this function return the bookings done by a person
-        User object = new User();
-        String naam = object.getName();
-        List<String > lst = new ArrayList<>();
-        lst.add(naam);
-        return lst.size();
+        return hotelManagementService.getBookings(aadharCard);
     }
 
     @PutMapping("/update-facilities")
