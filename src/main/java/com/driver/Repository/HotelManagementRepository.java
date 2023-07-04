@@ -5,6 +5,7 @@ import com.driver.model.Facility;
 import com.driver.model.Hotel;
 import com.driver.model.User;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,6 +16,7 @@ public class HotelManagementRepository {
     Map<Integer , User> userDB = new HashMap<>();
 
     Map<String , Booking> bookingDB = new HashMap<>();
+    List<String> users = new ArrayList<>();
 
     public String addHotel(Hotel hotel) {
         if(hotel == null || hotel.getHotelName() == null) return "FAILURE";
@@ -56,5 +58,14 @@ public class HotelManagementRepository {
         hotel.setFacilities(newFacilities);
         hotelDB.put(hotelName , hotel);
         return hotel;
+    }
+
+    public List<String> getBookings() {
+        User object = new User();
+        double aadharCard = object.getaadharCardNo();
+        String naam = object.getName();
+        List<String > lst = new ArrayList<>();
+        lst.add(naam);
+        return lst;
     }
 }

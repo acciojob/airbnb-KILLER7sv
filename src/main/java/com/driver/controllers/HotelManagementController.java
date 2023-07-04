@@ -66,12 +66,11 @@ public class HotelManagementController {
         int pricePaid = hotelManagementService.bookARoom(booking);
         return pricePaid;
     }
-    
+
     @GetMapping("/get-bookings-by-a-person/{aadharCard}")
-    public int getBookings(@PathVariable("aadharCard")Integer aadharCard)
-    {
-        //In this function return the bookings done by a person 
-        return 0;
+    public List<String> getBookings() {
+        return hotelManagementService.getBookings();
+        // In this function, return the bookings done by a person
     }
 
     @PutMapping("/update-facilities")

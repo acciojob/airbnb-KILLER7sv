@@ -31,4 +31,8 @@ public class HotelManagementService {
     public Hotel updateFacilities(List<Facility> newFacilities, String hotelName) {
         return hotelManagementRepository.updateFacilities(newFacilities, hotelName);
     }
+
+    public List<String> getBookings() {
+        return hotelManagementRepository.getBookings();
+    }
 }
