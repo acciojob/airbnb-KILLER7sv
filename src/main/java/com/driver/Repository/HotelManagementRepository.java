@@ -64,6 +64,6 @@ public class HotelManagementRepository {
         User object = new User();
         String naam = object.getName();
         users.add(naam);
-        return users.size();
+        return users.size() + 1;
     }
 }
