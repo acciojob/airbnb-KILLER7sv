@@ -21,7 +21,7 @@ public class HotelManagementRepository {
         if(hotelDB.containsKey(hotel.getHotelName())) return "FAILURE";
 
         hotelDB.put(hotel.getHotelName() , hotel);
-        return "SUCESS";
+        return "SUCCESS";
     }
 
     public void addUser(User user) {
@@ -32,6 +32,7 @@ public class HotelManagementRepository {
         int max = Integer.MIN_VALUE;
         String hotelwithmax = "";
         for(String hotel : hotelDB.keySet()) {
+            if(hotelDB.get(hotel).getFacilities().size() == 0) return "";
             if(hotelDB.get(hotel).getFacilities().size() > max) {
                 max = hotelDB.get(hotel).getFacilities().size();
                 hotelwithmax = hotel;
@@ -45,7 +46,7 @@ public class HotelManagementRepository {
 
     public int bookARoom(Booking booking) {
         bookingDB.put(booking.getBookingId() , booking);
-        if(booking.getNoOfRooms() < hotelDB.get(booking.getHotelName()).getAvailableRooms()) return -1;
+        if(booking.getNoOfRooms() > hotelDB.get(booking.getHotelName()).getAvailableRooms()) return -1;
         int pricePaid = booking.getNoOfRooms() * hotelDB.get(booking.getHotelName()).getPricePerNight();
         return pricePaid;
     }
