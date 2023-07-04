@@ -59,13 +59,4 @@ public class HotelManagementRepository {
         hotelDB.put(hotelName , hotel);
         return hotel;
     }
-
-    public List<String> getBookings() {
-        User object = new User();
-        double aadharCard = object.getaadharCardNo();
-        String naam = object.getName();
-        List<String > lst = new ArrayList<>();
-        lst.add(naam);
-        return lst;
-    }
 }

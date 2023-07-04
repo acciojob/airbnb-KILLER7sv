@@ -13,10 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Objects;
-import java.util.UUID;
+import java.util.*;
 
 @RestController
 @RequestMapping("/hotel")
@@ -69,8 +66,13 @@ public class HotelManagementController {
 
     @GetMapping("/get-bookings-by-a-person/{aadharCard}")
     public List<String> getBookings() {
-        return hotelManagementService.getBookings();
         // In this function, return the bookings done by a person
+        User object = new User();
+        double aadharCard = object.getaadharCardNo();
+        String naam = object.getName();
+        List<String > lst = new ArrayList<>();
+        lst.add(naam);
+        return lst;
     }
 
     @PutMapping("/update-facilities")
